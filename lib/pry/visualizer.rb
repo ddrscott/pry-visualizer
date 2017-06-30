@@ -30,7 +30,7 @@ class Pry
         )
         # send data to websocket
         @sock && begin
-          @sock.send_data(JSON.generate({command: @commands[-1]}))
+          @sock.send_data(JSON.generate({ command: @commands[-1] }))
         end
       end
     end
