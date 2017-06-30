@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_dependency 'pry'
+  spec.add_dependency 'rack'
   spec.add_dependency 'puma'
   spec.add_dependency 'tubesock'
 end

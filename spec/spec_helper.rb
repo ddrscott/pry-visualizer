@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "pry/visualizer"
+require "pry-visualizer"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

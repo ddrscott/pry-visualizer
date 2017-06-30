@@ -1,8 +1,28 @@
-# Pry::Visualizer
+# Pry Visualizer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pry/visualizer`. To experiment with that code, run `bin/console` for an interactive prompt.
+Visualize Pry results in your browser as commands are executed in a Pry console.
 
-TODO: Delete this and the text above, and describe your gem
+## Usage
+
+Default behavior it to auto detect result type and render as a single value,
+JSON object or tabular grid view.
+
+
+## Design
+
+### Pry Hooks
++ `when_started` starts a Puma server with Tubesock.
++ `before_eval` captures initial command input.
++ `after_eval` sets command results and sends data to socket as JSON.
+
+### Websocket Messages
+
++ command
+  + id (numeric) :: sequential index of command executed in Pry
+  + code (string) :: code evaluated
+  + start (date time) :: when evaluation started
+  + end (date time) :: when code finished
+  + result (JSON) :: JSON results of evaluated code
 
 ## Installation
 
@@ -16,14 +36,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install pry-visualizer
-
-## Usage
-
-TODO: Write usage instructions here
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -32,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pry-visualizer.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ddrscott/pry-visualizer.
 
 
 ## License
